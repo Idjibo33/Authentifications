@@ -19,7 +19,7 @@ class InscriptionProvider extends ChangeNotifier {
     try {
       if (email.isEmpty || password.isEmpty) {
         _chargement = false;
-        _message = "Toutes les cases sont obligatoires";
+        _message = "Entrez un adresse email valide et un mot de passe";
         notifyListeners();
         return false;
       }
