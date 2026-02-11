@@ -2,6 +2,7 @@ import 'package:firebase/Providers/auth_service_provider.dart';
 import 'package:firebase/Providers/connexion_service_provider.dart';
 import 'package:firebase/Providers/deconnexion_service_provider.dart';
 import 'package:firebase/Providers/inscription_provider.dart';
+import 'package:firebase/Providers/pw_reinitialisation_service_provider.dart';
 import 'package:firebase/views/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,6 +21,9 @@ void main() async {
           create: (context) => DeconnexionServiceProvider(),
         ),
         ChangeNotifierProvider(create: (context) => ConnexionServiceProvider()),
+        ChangeNotifierProvider(
+          create: (context) => PwReinitialisationServiceProvider(),
+        ),
       ],
       child: MainApp(),
     ),

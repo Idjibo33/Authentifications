@@ -1,6 +1,7 @@
 import 'package:firebase/Functions/connecter_utilisateur.dart';
 import 'package:firebase/Providers/connexion_service_provider.dart';
 import 'package:firebase/model/Navigations/naviguer_connexion_page.dart';
+import 'package:firebase/model/Navigations/naviguer_renitialisation_page.dart';
 import 'package:firebase/views/widgets/custom_bouton.dart';
 import 'package:firebase/views/widgets/custom_textfield.dart';
 import 'package:firebase/views/widgets/hero_widget.dart';
@@ -39,6 +40,21 @@ class ConnexionPage extends StatelessWidget {
                   titre: "Password",
                   fieldController: pwController,
                   labelTexte: "Entrez votre mot de passe",
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: TextButton(
+                    onPressed: () {
+                      naviguerRenitialisationPage(context);
+                    },
+                    child: Text(
+                      "Mot de passe oublié ?",
+                      style: GoogleFonts.roboto(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
                 Consumer<ConnexionServiceProvider>(
                   builder: (context, value, child) => CustomBouton(
