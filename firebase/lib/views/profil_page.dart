@@ -29,21 +29,9 @@ class ProfilPage extends StatelessWidget {
                 Column(
                   children: [
                     Text("Identifiant utilisateur :"),
-                    Text(
-                      id,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    Text(id, style: const TextStyle(fontSize: 16)),
                     Text("Email utilisateur :"),
-                    Text(
-                      email,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    Text(email, style: const TextStyle(fontSize: 16)),
                   ],
                 ),
                 Consumer<DeconnexionServiceProvider>(
