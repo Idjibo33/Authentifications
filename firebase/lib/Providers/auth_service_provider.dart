@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
 class AuthServiceProvider extends ChangeNotifier {
-  final AuthService authService = AuthService();
-  User? get currentUser => authService.firebaseAuth.currentUser;
+  final AuthService _authService = AuthService();
+  User? get currentUser => _authService.firebaseAuth.currentUser;
   Stream<User?> get authStateChanges =>
-      authService.firebaseAuth.authStateChanges();
+      _authService.firebaseAuth.authStateChanges();
 }

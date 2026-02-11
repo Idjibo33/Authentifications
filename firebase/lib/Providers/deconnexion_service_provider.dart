@@ -2,7 +2,7 @@ import 'package:firebase/Services/Authentification%20Services/deconnexion_servic
 import 'package:flutter/foundation.dart';
 
 class DeconnexionServiceProvider extends ChangeNotifier {
-  final DeconnexionService deconnexionService = DeconnexionService();
+  final DeconnexionService _deconnexionService = DeconnexionService();
   String? _message;
   bool _chargement = false;
 
@@ -12,7 +12,7 @@ class DeconnexionServiceProvider extends ChangeNotifier {
     _chargement = false;
     notifyListeners();
     try {
-      await deconnexionService.deconnecter();
+      await _deconnexionService.deconnecter();
       _chargement = false;
       _message = "Deconnecté avec succès";
       notifyListeners();

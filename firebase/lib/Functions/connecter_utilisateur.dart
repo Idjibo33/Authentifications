@@ -1,13 +1,17 @@
 import 'package:firebase/Providers/connexion_service_provider.dart';
 import 'package:firebase/model/Notifications/snack_bar_services.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-Future<void> connecterUtilisateur({
-  required BuildContext context,
+Future<void> connecterUtilisateur(
+  BuildContext context, {
   required String email,
   required String password,
 }) async {
-  final ConnexionServiceProvider auth = ConnexionServiceProvider();
+  final ConnexionServiceProvider auth = Provider.of<ConnexionServiceProvider>(
+    context,
+    listen: false,
+  );
   try {
     final bool connexion = await auth.connecterUtilisateur(
       email: email,

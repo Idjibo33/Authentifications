@@ -1,5 +1,5 @@
-import 'package:firebase/Providers/inscription_provider.dart';
 import 'package:firebase/Functions/inscrire_utilisateur.dart';
+import 'package:firebase/Providers/inscription_provider.dart';
 import 'package:firebase/views/widgets/custom_bouton.dart';
 import 'package:firebase/views/widgets/custom_textfield.dart';
 import 'package:firebase/views/widgets/hero_widget.dart';

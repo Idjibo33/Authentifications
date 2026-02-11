@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class InscriptionProvider extends ChangeNotifier {
-  final InscriptionService inscriptionService = InscriptionService();
+  final InscriptionService _inscriptionService = InscriptionService();
   String _message = "";
   bool _chargement = false;
   String? get message => _message;
@@ -26,7 +26,7 @@ class InscriptionProvider extends ChangeNotifier {
         notifyListeners();
         return false;
       }
-      await inscriptionService.creerCompte(
+      await _inscriptionService.creerCompte(
         email: email.trim(),
         password: password.trim(),
       );

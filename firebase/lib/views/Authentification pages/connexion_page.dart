@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 
 class ConnexionPage extends StatelessWidget {
   const ConnexionPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
@@ -39,28 +40,17 @@ class ConnexionPage extends StatelessWidget {
                   fieldController: pwController,
                   labelTexte: "Entrez votre mot de passe",
                 ),
-                Align(
-                  alignment: AlignmentGeometry.topLeft,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Mot de passe oublié ?",
-                      style: GoogleFonts.roboto(fontSize: 12),
-                    ),
-                  ),
-                ),
                 Consumer<ConnexionServiceProvider>(
                   builder: (context, value, child) => CustomBouton(
                     texte: "Se connecter",
                     action: () => connecterUtilisateur(
-                      context: context,
+                      context,
                       email: emailController.text,
                       password: pwController.text,
                     ),
                     chargement: value.chargement,
                   ),
                 ),
-            
                 TextButton(
                   onPressed: () {
                     naviguerInscriptionPage(context);

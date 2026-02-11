@@ -3,13 +3,15 @@ import 'package:firebase/Providers/inscription_provider.dart';
 import 'package:firebase/model/Navigations/naviguer_splash_page.dart';
 import 'package:firebase/model/Notifications/snack_bar_services.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 Future<void> inscrireUtilisateur({
   required BuildContext context,
   required String email,
   required String password,
 }) async {
-  final InscriptionProvider inscriptionProvider = InscriptionProvider();
+  final InscriptionProvider inscriptionProvider =
+      Provider.of<InscriptionProvider>(context, listen: false);
   try {
     final inscription = await inscriptionProvider.inscrireUtilisateur(
       email: email,

@@ -3,7 +3,7 @@ import 'package:firebase/Services/Authentification%20Services/connexion_service.
 import 'package:flutter/material.dart';
 
 class ConnexionServiceProvider extends ChangeNotifier {
-  final ConnexionService connexionService = ConnexionService();
+  final ConnexionService _connexionService = ConnexionService();
   bool _chargement = false;
   String _message = "";
   bool get chargement => _chargement;
@@ -15,8 +15,8 @@ class ConnexionServiceProvider extends ChangeNotifier {
     _chargement = true;
     notifyListeners();
     try {
-      if (email.isNotEmpty && password.isNotEmpty){
-        await connexionService.connecterUtilisateur(
+      if (email.isNotEmpty && password.isNotEmpty) {
+        await _connexionService.connecterUtilisateur(
           email: email.trim(),
           password: password.trim(),
         );
@@ -28,7 +28,6 @@ class ConnexionServiceProvider extends ChangeNotifier {
         _message = "Veuillez remplir tous les champs";
         notifyListeners();
       }
-
     } catch (e) {
       _chargement = false;
       _message = gererExceptionConnexion(e.toString());
