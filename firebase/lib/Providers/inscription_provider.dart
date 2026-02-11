@@ -14,15 +14,22 @@ class InscriptionProvider extends ChangeNotifier {
   Future<bool> inscrireUtilisateur({
     required String email,
     required String password,
+    required String passwordConfirmation,
   }) async {
     debugPrint(chargement.toString());
     _chargement = true;
     notifyListeners();
     debugPrint(chargement.toString());
     try {
-      if (email.isEmpty || password.isEmpty) {
+      if (email.isEmpty || password.isEmpty || passwordConfirmation.isEmpty) {
         _chargement = false;
         _message = "Entrez un adresse email valide et un mot de passe";
+        notifyListeners();
+        return false;
+      }
+      if (password != passwordConfirmation) {
+        _chargement = false;
+        _message = "Les mots de passe ne correspondent pas";
         notifyListeners();
         return false;
       }

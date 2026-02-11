@@ -14,6 +14,7 @@ class InscriptionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
     TextEditingController pwController = TextEditingController();
+    TextEditingController pwConfConfirmController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(),
@@ -39,6 +40,11 @@ class InscriptionPage extends StatelessWidget {
                   fieldController: pwController,
                   labelTexte: "Entrez votre mot de passe",
                 ),
+                CustomTextfield(
+                  titre: "Password",
+                  fieldController: pwConfConfirmController,
+                  labelTexte: "Entrez votre mot de passe",
+                ),
                 Consumer<InscriptionProvider>(
                   builder: (context, value, child) => CustomBouton(
                     texte: "S'inscrire",
@@ -46,6 +52,7 @@ class InscriptionPage extends StatelessWidget {
                       context: context,
                       email: emailController.text,
                       password: pwController.text,
+                      passwordConfirmation: pwConfConfirmController.text,
                     ),
                     chargement: value.chargement,
                   ),

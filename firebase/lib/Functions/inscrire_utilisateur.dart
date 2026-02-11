@@ -9,6 +9,7 @@ Future<void> inscrireUtilisateur({
   required BuildContext context,
   required String email,
   required String password,
+  required String passwordConfirmation,
 }) async {
   final InscriptionProvider inscriptionProvider =
       Provider.of<InscriptionProvider>(context, listen: false);
@@ -16,6 +17,7 @@ Future<void> inscrireUtilisateur({
     final inscription = await inscriptionProvider.inscrireUtilisateur(
       email: email,
       password: password,
+      passwordConfirmation: passwordConfirmation,
     );
     if (context.mounted) {
       if (inscription) {
