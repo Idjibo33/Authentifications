@@ -1,5 +1,5 @@
 import 'package:firebase/Providers/auth_service_provider.dart';
-import 'package:firebase/views/Authentification%20pages/inscription_page.dart';
+import 'package:firebase/views/Authentification%20pages/connexion_page.dart';
 import 'package:firebase/views/profil_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +19,7 @@ class SplashPage extends StatelessWidget {
           if (snapshot.hasData) {
             return ProfilPage();
           } else {
-            return InscriptionPage();
+            return ConnexionPage();
           }
         },
       ),
