@@ -1,7 +1,6 @@
 import 'package:firebase/Functions/deconnecter_utilisateur.dart';
 import 'package:firebase/Providers/deconnexion_service_provider.dart';
 import 'package:firebase/Providers/utilisateur_provider.dart';
-import 'package:firebase/Services/utilisateur_service.dart';
 import 'package:firebase/views/widgets/custom_bouton.dart';
 import 'package:firebase/views/widgets/details_widgets.dart';
 import 'package:firebase/views/widgets/hero_widget.dart';
