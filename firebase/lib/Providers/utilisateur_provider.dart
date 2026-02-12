@@ -4,28 +4,24 @@ import 'package:flutter/foundation.dart';
 
 class UtilisateurProvider extends ChangeNotifier {
   final UtilisateurService _utilisateurService = UtilisateurService();
-  Utilisateur? _utilisateur;
-  String? _messageErreur;
+  Utilisateur _utilisateur = Utilisateur();
+  String _messageErreur = "";
 
-  String? get messageErreur => _messageErreur;
-  Utilisateur? get utilisateur => _utilisateur;
+  String get messageErreur => _messageErreur;
+  Utilisateur get utilisateur => _utilisateur;
 
   //Lire les informations de l'utilisateur
-  Future lireInfoUtilisateur() async {
+  Future<bool> lireInfoUtilisateur() async {
     try {
-      var resultat = await _utilisateurService.lireInfoUtilisateurs();
-      if (resultat != null) {
-        _utilisateur = Utilisateur.fromMap(resultat!);
-        notifyListeners();
-      } else {
-        _messageErreur = "Une erreur est survenue";
-        notifyListeners();
-      }
-      return false;
+      final resultat = await _utilisateurService.lireInfoUtilisateurs();
+      _utilisateur = Utilisateur.fromMap(resultat);
+      print(_utilisateur);
+      notifyListeners();
+      return true;
     } catch (e) {
       _messageErreur = e.toString();
       notifyListeners();
-      return false;
+      throw Exception(e);
     }
   }
 }
