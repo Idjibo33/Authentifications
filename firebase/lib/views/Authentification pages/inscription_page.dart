@@ -12,6 +12,8 @@ class InscriptionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController nomController = TextEditingController();
+    TextEditingController prenomController = TextEditingController();
     TextEditingController emailController = TextEditingController();
     TextEditingController pwController = TextEditingController();
     TextEditingController pwConfConfirmController = TextEditingController();
@@ -20,7 +22,7 @@ class InscriptionPage extends StatelessWidget {
       appBar: AppBar(),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -29,7 +31,17 @@ class InscriptionPage extends StatelessWidget {
                   color: Colors.grey,
                   child: HeroWidget(texte: "Inscription"),
                 ),
-                Gap(50),
+                Gap(16),
+                CustomTextfield(
+                  titre: "Nom",
+                  fieldController: nomController,
+                  labelTexte: "Entrez votre nom",
+                ),
+                CustomTextfield(
+                  titre: "Prenom",
+                  fieldController: prenomController,
+                  labelTexte: "Entrez votre prenom",
+                ),
                 CustomTextfield(
                   titre: "Email",
                   fieldController: emailController,
@@ -43,13 +55,16 @@ class InscriptionPage extends StatelessWidget {
                 CustomTextfield(
                   titre: "Password",
                   fieldController: pwConfConfirmController,
-                  labelTexte: "Entrez votre mot de passe",
+                  labelTexte: "Confirmez votre mot de passe",
                 ),
+                Gap(20),
                 Consumer<InscriptionProvider>(
                   builder: (context, value, child) => CustomBouton(
                     texte: "S'inscrire",
                     action: () => inscrireUtilisateur(
                       context: context,
+                      nom: nomController.text,
+                      prenom: prenomController.text,
                       email: emailController.text,
                       password: pwController.text,
                       passwordConfirmation: pwConfConfirmController.text,

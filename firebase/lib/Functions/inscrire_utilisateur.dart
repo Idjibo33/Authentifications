@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 
 Future<void> inscrireUtilisateur({
   required BuildContext context,
+  required String nom,
+  required String prenom,
   required String email,
   required String password,
   required String passwordConfirmation,
@@ -15,6 +17,8 @@ Future<void> inscrireUtilisateur({
       Provider.of<InscriptionProvider>(context, listen: false);
   try {
     final inscription = await inscriptionProvider.inscrireUtilisateur(
+      nom: nom,
+      prenom: prenom,
       email: email,
       password: password,
       passwordConfirmation: passwordConfirmation,

@@ -21,7 +21,7 @@ class ConnexionPage extends StatelessWidget {
       appBar: AppBar(),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -30,7 +30,7 @@ class ConnexionPage extends StatelessWidget {
                   color: Colors.grey,
                   child: HeroWidget(texte: "Connexion"),
                 ),
-                Gap(50),
+                Gap(16),
                 CustomTextfield(
                   titre: "Email",
                   fieldController: emailController,
@@ -56,6 +56,7 @@ class ConnexionPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                Gap(20),
                 Consumer<ConnexionServiceProvider>(
                   builder: (context, value, child) => CustomBouton(
                     texte: "Se connecter",
