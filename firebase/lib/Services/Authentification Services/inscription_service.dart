@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class InscriptionService {
   final _auth = AuthService().firebaseAuth;
 
-  //Créer un compte d'utilisateur
+  //Créer un compte d'utilisateur avec email et mot de passe
   Future<UserCredential?> creerCompte({
     required String email,
     required String password,
@@ -20,12 +20,21 @@ class InscriptionService {
     }
   }
 
+  // Inscrire Utilisateur en tant qu'anonyme
+  Future<UserCredential?> inscrireAnonyme() async {
+    try {
+      return await _auth.signInAnonymously();
+    } on FirebaseAuthException catch (e) {
+      throw Exception(e);
+    }
+  }
+
   //AJouter les informations de l'utilisateur
   Future ajouterInfosUtiliseur({
     required String id,
-    required String nom,
-    required String prenom,
-    required String email,
+    required String? nom,
+    required String? prenom,
+    required String? email,
     required UserCredential utilisateur,
   }) async {
     final infos = {"id": id, "nom": nom, "prenom": prenom, "email": email};
@@ -34,7 +43,7 @@ class InscriptionService {
           .collection('users')
           .doc(utilisateur.user!.uid)
           .set(infos);
-    } catch (e) {
+    } on FirebaseAuthException catch (e) {
       throw Exception(e.toString());
     }
   }

@@ -1,6 +1,8 @@
-import 'package:firebase/Functions/inscrire_utilisateur.dart';
+import 'package:firebase/Functions/inscrire_utilisateur_avec_Email.dart';
+import 'package:firebase/Functions/inscrire_utilisateur_invit%C3%A9.dart';
 import 'package:firebase/Providers/inscription_provider.dart';
 import 'package:firebase/views/widgets/custom_bouton.dart';
+import 'package:firebase/views/widgets/custom_text_button.dart';
 import 'package:firebase/views/widgets/custom_textfield.dart';
 import 'package:firebase/views/widgets/hero_widget.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +63,7 @@ class InscriptionPage extends StatelessWidget {
                 Consumer<InscriptionProvider>(
                   builder: (context, value, child) => CustomBouton(
                     texte: "S'inscrire",
-                    action: () => inscrireUtilisateur(
+                    action: () => inscrireUtilisateurAvecEmail(
                       context: context,
                       nom: nomController.text,
                       prenom: prenomController.text,
@@ -70,6 +72,15 @@ class InscriptionPage extends StatelessWidget {
                       passwordConfirmation: pwConfConfirmController.text,
                     ),
                     chargement: value.chargement,
+                  ),
+                ),
+                Consumer<InscriptionProvider>(
+                  builder: (context, value, child) => CustomTextButton(
+                    texte: "Continuer en tant qu'invité",
+                    chargement: value.chargement,
+                    action: () {
+                      inscrireUtilisateurInvite(context);
+                    },
                   ),
                 ),
               ],

@@ -1,5 +1,5 @@
 import 'package:firebase/Functions/deconnecter_utilisateur.dart';
-import 'package:firebase/Providers/deconnexion_service_provider.dart';
+import 'package:firebase/Providers/inscription_provider.dart';
 import 'package:firebase/Providers/utilisateur_provider.dart';
 import 'package:firebase/views/widgets/custom_bouton.dart';
 import 'package:firebase/views/widgets/details_widgets.dart';
@@ -32,19 +32,19 @@ class ProfilPage extends StatelessWidget {
                       children: [
                         DetailsWidgets(
                           titre: "Identifiant de l'utilisateur",
-                          donnee: value.utilisateur.id ?? "identifiant",
+                          donnee: value.utilisateur.id ?? "Non définit",
                         ),
                         DetailsWidgets(
                           titre: "Nom de l'utilisateur",
-                          donnee: value.utilisateur.nom ?? "identifiant",
+                          donnee: value.utilisateur.nom ?? "Non définit",
                         ),
                         DetailsWidgets(
                           titre: "prenom de l'utilisateur",
-                          donnee: value.utilisateur.prenom ?? "identifiant",
+                          donnee: value.utilisateur.prenom ?? "Non définit",
                         ),
                         DetailsWidgets(
                           titre: "Prenom de l'utilisateur",
-                          donnee: value.utilisateur.email ?? "identifiant",
+                          donnee: value.utilisateur.email ?? "Non définit",
                         ),
                       ],
                     );
@@ -53,7 +53,7 @@ class ProfilPage extends StatelessWidget {
                 },
               ),
             ),
-            Consumer<DeconnexionServiceProvider>(
+            Consumer<InscriptionProvider>(
               builder: (context, value, child) => CustomBouton(
                 texte: "Se déconnecter",
                 action: () => deconnecterUtilisateur(context),

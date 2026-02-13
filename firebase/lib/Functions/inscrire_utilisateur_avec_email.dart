@@ -5,7 +5,7 @@ import 'package:firebase/model/Notifications/snack_bar_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-Future<void> inscrireUtilisateur({
+Future<void> inscrireUtilisateurAvecEmail({
   required BuildContext context,
   required String nom,
   required String prenom,
@@ -16,13 +16,14 @@ Future<void> inscrireUtilisateur({
   final InscriptionProvider inscriptionProvider =
       Provider.of<InscriptionProvider>(context, listen: false);
   try {
-    final inscription = await inscriptionProvider.inscrireUtilisateur(
-      nom: nom,
-      prenom: prenom,
-      email: email,
-      password: password,
-      passwordConfirmation: passwordConfirmation,
-    );
+    final inscription = await inscriptionProvider
+        .inscrireUtilisateurAvecEmailPassword(
+          nom: nom,
+          prenom: prenom,
+          email: email,
+          password: password,
+          passwordConfirmation: passwordConfirmation,
+        );
     if (context.mounted) {
       if (inscription) {
         SnackBarService.succes(context, inscriptionProvider.message);
