@@ -1,14 +1,18 @@
 # firebase authentication 
 
-Ce projet présente une mini workflow d'authentification avec email et mot de passe utilisant des customs widgets, services de notification et de navigation centralisé.
+Ce projet présente une mini workflow d'authentification firebase avec email et mot de passe utilisant des customs widgets, services de notification et de navigation centralisé.
 
 ## Fonctionnalités
 
-- **Bouton de connexion personnalisé**
+- **Inscription de l'utilisateur avec email et mot de passe**
+- **Inscription de l'utilisateur anonyme**
+- **Connexion de l'utilisateur avec email et mot de passe**
+- **Reinitialisation du mot de passe de l'utilisateur**
+- **Enregistrement des informations de l'utilisateur dans la base de donnée**
+- **Affichage des informations de l'utilisateur enregistré dans la base de donnée**
 - **Gestion d'État avec Provider**
 - **Notification Service**
 - **Feedback Haptique (Vibrations)**
-- **Simulation d'API (Mocking)**
 
 ## Aperçu
-![text](assets/screenshots/screen-20260126-223334-1769463177064-ezgif.com-video-to-gif-converter.gif)
+![text](assets/images/Connexion%20page.png) | ![text](assets/images/Inscription%20page.png) | ![text](assets/images/Reinitialitsation%20page.png) | ![text](assets/images/Profil%20page.png) 
