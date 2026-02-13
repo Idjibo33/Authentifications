@@ -1,5 +1,5 @@
-import 'package:firebase/Functions/inscrire_utilisateur_avec_Email.dart';
-import 'package:firebase/Functions/inscrire_utilisateur_invit%C3%A9.dart';
+import 'package:firebase/Functions/inscrire_utilisateur_avec_email.dart';
+import 'package:firebase/Functions/inscrire_utilisateur_invite.dart';
 import 'package:firebase/Providers/inscription_provider.dart';
 import 'package:firebase/views/widgets/custom_bouton.dart';
 import 'package:firebase/views/widgets/custom_text_button.dart';

@@ -15,7 +15,6 @@ class UtilisateurProvider extends ChangeNotifier {
     try {
       final resultat = await _utilisateurService.lireInfoUtilisateurs();
       _utilisateur = Utilisateur.fromMap(resultat);
-      print(_utilisateur);
       notifyListeners();
       return true;
     } catch (e) {

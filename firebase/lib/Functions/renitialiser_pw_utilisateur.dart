@@ -15,6 +15,7 @@ void renitialiserPw(BuildContext context, {required String email}) async {
     if (reinitialisation) {
       if (context.mounted) {
         SnackBarService.succes(context, auth.message);
+        Navigator.pop(context);
       }
     } else {
       if (context.mounted) {
